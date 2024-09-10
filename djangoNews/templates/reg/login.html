@@ -1,0 +1,20 @@
+{% extends  'base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+    <div class="form-signin w-100 m-autor">
+        
+            <h4>Войдите в свою учетную запись</h4>
+            <form method="post" class="form-floating">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ next }}">
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-outline-success btn-block">
+                    Вход
+                </button>
+                <a href=".." class="btn btn-outline-danger btn-block">
+                    Назад
+                </a>
+            </form>
+        
+    </div>    
+{% endblock %}

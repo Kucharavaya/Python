@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>новости</title>
+</head>
+<body>
+
+{% extends 'base.html' %}
+{% block main %}
+<h4 class="text-center p-4">Новости со всего мира: </h4>
+{% if message %}
+        <p>
+            <strong>{{ message }}</strong>
+        </p>
+    {% endif %}
+    {% if latest_riddles %}
+        <ul>
+            {% for riddle in latest_riddles %}
+                <li>
+                    <a href="/riddles/{{ riddle.id }}/">
+                        {{ riddle.riddle_text }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <p>Новостей пока нет, но вы можете их создать</p>
+{% endif %}
+{% endblock %}
+</body>
+</html>
